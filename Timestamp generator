@@ -1,0 +1,24 @@
+# Python Practice
+# July 2017
+
+# Generates 20 random timestamps
+# Requests and receives 20 integers (number of guests for each half hour)
+# Calculates the mean of those 20 integers (y_bar)
+# Calculates 2*mean (2_y_bar)
+
+from random import randrange
+import datetime
+
+def random_date(start,l):
+    current = start
+    while l >= 0:
+        curr = current + datetime.timedelta(minutes=randrange(60))
+        yield curr
+        l-=1
+        
+startDate = datetime.datetime(2017, 7, 18, 9, 00)
+
+for x in random_date(startDate,10):
+    print x.strftime("%d/%m/%y %H:%M)
+    
+# This only generates per hour, must be updated for each one.
